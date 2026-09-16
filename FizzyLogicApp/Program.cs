@@ -104,20 +104,20 @@ namespace FizzyLogicApp
 
             for (double y = 0.0; y <= 100.0; y += stepSize)
             {
-                // Output fuzzy sets across the risk scale
+                //risk scale
                 double outLow = TrapezoidalMembership(y, 0, 0, 15, 30);
                 double outMod = TriangularMembership(y, 20, 50, 80);
                 double outHigh = TrapezoidalMembership(y, 70, 85, 100, 100);
 
-                // Implication (Clipping via Min)
+                //implications
                 double clippedLow = Math.Min(rLow, outLow);
                 double clippedMod = Math.Min(rMod, outMod);
                 double clippedHigh = Math.Min(rHigh, outHigh);
 
-                // Aggregation (Union via Max)
+                //aggregations
                 double aggregatedY = Math.Max(clippedLow, Math.Max(clippedMod, clippedHigh));
 
-                // Centroid integration components
+                //centroid components
                 sumNumerator += y * aggregatedY * stepSize;
                 sumDenominator += aggregatedY * stepSize;
             }

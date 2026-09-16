@@ -7,7 +7,7 @@ namespace FizzyLogicApp
         static void Main(string[] args)
         {
             Console.WriteLine("Medical Risk Assessment System");
-
+            
             //datas
             double bloodGlucose = 145.0; 
             double bmi = 29.5;      
